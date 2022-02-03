@@ -15,20 +15,20 @@ ActiveRecord::Schema.define(version: 2022_02_01_172953) do
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.date "birth_date"
-    t.integer "users_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_contacts_on_users_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "phones", force: :cascade do |t|
     t.integer "number"
     t.string "type"
     t.boolean "main"
-    t.integer "contacts_id"
+    t.integer "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["contacts_id"], name: "index_phones_on_contacts_id"
+    t.index ["contact_id"], name: "index_phones_on_contact_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +39,6 @@ ActiveRecord::Schema.define(version: 2022_02_01_172953) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "contacts", "users", column: "users_id"
-  add_foreign_key "phones", "contacts", column: "contacts_id"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "phones", "contacts"
 end

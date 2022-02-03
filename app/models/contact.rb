@@ -1,5 +1,5 @@
 class Contact < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
   has_many :phones
 
   validates :name, presence: true, uniqueness: {
