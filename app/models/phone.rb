@@ -5,7 +5,7 @@ class Phone < ApplicationRecord
     scope: :contacts,
     message: 'cannot have multiple numbers for a contact'
   }
-  validates :type, presence: true, inclusion: {
+  validates :phone_type, presence: true, inclusion: {
     in: %w(home work other),
     message: '%{value} is not a valid number type'
   }, uniqueness: {

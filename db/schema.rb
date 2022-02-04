@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_172953) do
 
   create_table "phones", force: :cascade do |t|
     t.integer "number"
-    t.string "type"
+    t.string "phone_type"
     t.boolean "main"
     t.integer "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
