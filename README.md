@@ -1,9 +1,9 @@
 # Rails Challenge
 
 Make a contact list rails application only using Models.
-- A user can have many contacts
-- A contact can have multiple phone numbers
-- Validate its attributes and make migrations (attributes marked as an * must be unique and mandatory)
+- A user can have many contacts.
+- A contact can have multiple phone numbers.
+- Validate its attributes and make migrations (attributes marked with * must be unique and mandatory).
 
 - User
   - name*
@@ -39,16 +39,16 @@ $ git clone git@github.com:wesjrock/my-rails-project.git
 $ 'bundle install'
 ```
 
-# Running the Aplication
+# Running rails server
 Go to root directory and run:
 
 ```
 $ rails server
-$ rails console
 ```
 
 # Adding data and checking the database
 ```
+$ rails console
 $ User.create!(name: "Paul", age: "25", bio: "Paul is a client from England")
 $ User.find_by(name: "Paul").contacts.create!(name: "Patricia")
 $ Contact.find_by(name: "Patricia").phones.create!(number: "5550103", phone_type: "home", main: "1")
