@@ -1,24 +1,58 @@
-# README
+# Rails Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make a contact list rails application only using Models.
+- A user can have many contacts.
+- A contact can have multiple phone numbers.
+- Validate its attributes and make migrations (attributes marked with * must be unique and mandatory).
 
-Things you may want to cover:
+- User
+  - name*
+  - age
+  - biography
 
-* Ruby version
+- Contact
+  - name*
+  - birth date
 
-* System dependencies
+- Phone
+  - number*
+  - phone type* (home/work/other)
+  - main* (boolean)
 
-* Configuration
 
-* Database creation
+# Required
+1. Install Ruby (version 3.1.0) and Ruby Gems
+```
+https://rvm.io
+https://rubygems.org/pages/download
+```
+2. Install bundler
+```
+$ gem install bundler
+```
+3. Clone this repository and then Extract it
+```
+$ git clone git@github.com:wesjrock/my-rails-project.git
+```
+4. Install dependencies:
+```
+$ 'bundle install'
+```
 
-* Database initialization
+# Running rails server
+Go to root directory and run:
 
-* How to run the test suite
+```
+$ rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Adding data and checking the database
+```
+$ rails console
+$ User.create!(name: "Paul", age: "25", bio: "Paul is a client from England")
+$ User.find_by(name: "Paul").contacts.create!(name: "Patricia")
+$ Contact.find_by(name: "Patricia").phones.create!(number: "5550103", phone_type: "home", main: "1")
+$ User.all
+$ Contact.all
+$ Phone.all
+```

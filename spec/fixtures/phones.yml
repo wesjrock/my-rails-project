@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+phone_contact_one:
+  number: 5550789
+  phone_type: 'home'
+  main: true
+  contact: contact_one
+
+phone_contact_two:
+  number: 5551234
+  phone_type: 'work'
+  main: false
+  contact: contact_one
