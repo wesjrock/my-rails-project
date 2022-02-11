@@ -1,19 +1,9 @@
 class Phone < ApplicationRecord
   belongs_to :contact
 
-  validates :number, presence: true, uniqueness: {
-    scope: :contacts,
-    message: 'cannot have multiple numbers for a contact'
-  }
+  validates :number, presence: true, uniqueness: true
   validates :phone_type, presence: true, inclusion: {
-    in: %w(home work other),
-    message: '%{value} is not a valid number type'
-  }, uniqueness: {
-    scope: :contacts,
-    message: 'cannot have multiple types for a contact'
-  }
-  validates :main, presence: true, uniqueness: {
-    scope: :contacts,
-    message: 'cannot have multiple main numbers for a contact'
-  }
+    in: %w(home work other)
+  }, uniqueness: true
+  validates :main, inclusion: [true, false], uniqueness: true
 end
