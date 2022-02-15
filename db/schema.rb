@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_172953) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_contacts_on_name", unique: true
+    t.index "\"name\", \"phone_id\"", name: "index_contacts_on_name_and_phone_id", unique: true
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_172953) do
     t.integer "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category"], name: "index_phones_on_category", unique: true
+    t.index "\"category\", \"user_id\"", name: "index_phones_on_category_and_user_id", unique: true
     t.index ["contact_id"], name: "index_phones_on_contact_id"
     t.index ["number"], name: "index_phones_on_number", unique: true
   end
