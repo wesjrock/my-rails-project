@@ -6,6 +6,8 @@ class Phone < ApplicationRecord
 
   validates :category, presence: true, inclusion: {
     in: %w(home work other)
-  }, uniqueness: true
+  }
+  validates_uniqueness_of :category, scope: :contact_id
+
   validates :main_phone, inclusion: [true, false]
 end
