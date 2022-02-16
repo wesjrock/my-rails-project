@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_172953) do
     t.integer "contact_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"category\", \"user_id\"", name: "index_phones_on_category_and_user_id", unique: true
+    t.index "\"number\", \"category\", \"user_id\"", name: "index_phones_on_number_and_category_and_user_id", unique: true
     t.index ["contact_id"], name: "index_phones_on_contact_id"
-    t.index ["number"], name: "index_phones_on_number", unique: true
   end
 
   create_table "users", force: :cascade do |t|
